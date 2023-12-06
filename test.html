@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 클릭 예제</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        img {
+            cursor: pointer;
+            width: 300px;
+            /* 이미지의 크기를 조정하세요. */
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="다른페이지.html">
+            <img src="이미지파일.jpg" alt="클릭할 이미지">
+        </a>
+    </div>
+    <script src="script.js">
+        document.querySelector('img').addEventListener('click', function () {
+            window.location.href = '다른페이지.html';
+        });
+    </script>
+</body>
+
+</html>
