@@ -81,12 +81,14 @@
                     alt="">
             </div>
 
-            
+
             <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid" style="display: flex;flex-direction: row-reverse; flex-wrap: nowrap; justify-content: center;">
+                <div class="container-fluid"
+                    style="display: flex;flex-direction: row-reverse; flex-wrap: nowrap; justify-content: center;">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon" style="background-color: black; border: 4px solid black;"></span>
+                        <span class="navbar-toggler-icon"
+                            style="background-color: black; border: 4px solid black;"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
@@ -185,7 +187,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <!-- Modal -->
+        <!-- Modal 이거 안필요한것같은데...-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -220,7 +222,7 @@
                 </div>
             </div>
         </div>
-
+<!-- main1 -->
         <main>
             <!-- 윗 배경 자리 -->
             <section id="main-section-top" class="background-pale-peach" style="height: 100%; overflow: hidden;">
@@ -273,59 +275,53 @@
             </section>
             <br>
             <br>
+        </main>
 
-
-            <section class="main-card-section" style="background-color:#f9f9f9">
-
-                <!-- 카드 시작 -->
-                <div class="hot-place">
-                    <h3>우리가 추천하는 여행지</h3>
-                </div>
-                <div class="d-flex justify-content-end" style="margin-right: 50px; margin-bottom: 10px;">
-                    <button type="button" class="btn btn-outline-primary">여행지 모두 보기</button>  
-                </div>              
-                <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
-                <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                        {% for travel in data %}
-                        <div class="carousel-item active">
-                            <div id="card-wrap" class="mx-auto w-75 pb-5">
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <a href="!!!!!!!!!!!!!!!!!!!!!!!!!">
-                                            <img src="{{ travel.image }}" class="card-img-top" alt="...">
-                                        </a>
-                                        <div class="card-body">
-                                            <strong class="card-title">{{ travel.title }}</strong>
-                                            <p class="card-text">{{ travel.adress }} </p>
-                                            <p class="card-text">{{ travel.username }} </p>
-                                        </div>
-                                    </div>
+<!-- main2 -->
+    </div>
+    <!-- 카드 시작 -->
+    <section class="main-card-section" style="background-color:#f9f9f9">
+        <div class="hot-place">
+            <h3>우리가 추천하는 여행지</h3>
+        </div>
+        <div class="d-flex justify-content-end" style="margin-right: 50px; margin-bottom: 10px;">
+            <button type="button" class="btn btn-outline-primary">여행지 모두 보기</button>
+        </div>
+        <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                {% for travel in data %}
+                <div class="carousel-item active">
+                    <div id="card-wrap" class="mx-auto w-75 pb-5">
+                        <div class="col">
+                            <div class="card h-100">
+                                <a href="!!!!!!!!!!!!!!!!!!!!!!!!!">
+                                    <img src="{{ travel.image }}" class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body">
+                                    <strong class="card-title">{{ travel.title }}</strong>
+                                    <p class="card-text">{{ travel.adress }} </p>
+                                    <p class="card-text">{{ travel.username }} </p>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
-                <!-- 카드 끝 -->
-            </section>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <!-- 카드 끝 -->
 
-
-        </main>
-
-    </div>
-
-    <div class="main3">
+    <div class="main3" style="margin-top: 20px; margin-bottom: 20px;">
         <!-- 주간 날씨 불러오기 -->
         <div class="R3Y3ec rr3bxd">
             <h2>이번주 날씨</h2>
@@ -441,15 +437,18 @@
         <!-- 예약 사이트 표시 -->
         <div class="reserve">
             <div class="reserves">
+                <img src="https://cdn-icons-png.flaticon.com/512/632/632519.png" width="40px;" height="40px;">
                 <a class="btn btn-primary" href="https://www.bustago.or.kr/newweb/kr/index.do" role="button">버스 예약
                     하러가기</a>
             </div>
             <div>
+                <img src=https://cdn-icons-png.flaticon.com/512/7893/7893979.png width="60px;" height="60px;">
                 <a class="btn btn-primary"
                     href="https://www.skyscanner.co.kr/?&utm_source=google&utm_medium=cpc&utm_campaign=KR-Flights-Search-KO-Generics&utm_term=%EB%B9%84%ED%96%89%EA%B8%B0%EC%98%88%EC%95%BD&associateID=SEM_GGF_19370_00080&gclid=CjwKCAiA1MCrBhAoEiwAC2d64Q1nVeTjkfSGvhVx_iLwcGKUTTE82xu6AR1oNjeC85_f1JxJRqJ4QRoCW48QAvD_BwE&gclsrc=aw.ds"
                     role="button">비행기 예약 하러가기</a>
             </div>
             <div class="reserves">
+                <img src=https://cdn-icons-png.flaticon.com/512/1008/1008150.png width="60px;" height="60px;">
                 <a class="btn btn-primary"
                     href="https://kr.trip.com/trains/korail?allianceid=14887&sid=1621865&ppcid=ckid-5801369635_adid-675030309825_akid-kwd-529386144672_adgid-160735330224&utm_source=google&utm_medium=cpc&utm_campaign=20588302786&gad_source=1&gclid=CjwKCAiA1MCrBhAoEiwAC2d64RXBmBkWOfIUsKKP4jhTiYQZaGzjfZ7cvyYAGdts2pGf2gqQXrB5nRoCv8sQAvD_BwE"
                     role="button">기차 예약 하러가기</a>
