@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+        .first-title {
+            margin-top: 50px;
+        }
+
+        .mytravelpage-btn {
+            text-align: right;
+            margin-top: 50px;
+            margin-right: 20px;
+        }
+
+        .second-title {
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .card-wrapper {
+            display: flex;
+            margin: auto;
+            max-width: fit-content;
+        }
+
+        .hot-place {
+            width: auto;
+            color: white;
+            font-size: 17px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-img-top {
+            height: 300px;
+            width: 300px;
+        }
+
+        .card-title {
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- nav -->
+
+    <!-- main -->
+    <div class="first-title"">
+        <h3><span style=" color: red;">여행 기록</span>을 남겨주세요.</h3>
+    </div>
+
+    <div class="mytravelpage-btn">
+        <a href="{{ url_for('newtravelpage') }}">
+        <button type="button" class="btn btn-secondary btn-sm">카드생성하기</button>
+        </a>
+    </div>
+
+    <div class="second-title">
+        <h4>가고 싶은 여행지를 골라주세요.</h4>
+    </div>
+
+    <!-- main -->
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for ???????? in data %}
+            <div class="carousel-item active" data-bs-interval="5000">
+                <div class="card-wrapper">
+                    <div class="">
+                        <div class="col">
+                            <div class="card h-100">
+                                    <img src="{{ data.image }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <span class="card-title">{{ data.title }}</span>
+                                    <p class="card-text">{{ data.adress }}</p>
+                                    <p class="card-text">{{ data.username }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -15,7 +15,11 @@
             margin-top: 50px;
         }
 
-        .mytravelpage-btn {}
+        .mytravelpage-btn {
+            text-align: right;
+            margin-top: 50px;
+            margin-right: 20px;
+        }
 
         .second-title {
             text-align: center;
@@ -26,6 +30,10 @@
             display: flex;
             margin: auto;
             max-width: fit-content;
+        }
+
+        .col {
+            margin-right: 10px;
         }
 
         .hot-place {
@@ -49,15 +57,14 @@
 </head>
 
 <body>
-    <!-- nav -->
-
     <!-- main -->
+
     <div class="first-title"">
         <h3><span style=" color: blue;">추천 여행지.</span> 어디로 가시나요?</h3>
     </div>
 
-    <div class="mytravelpage-btn">
-        <p>나의 여행 페이지</p>
+    <div class="mytravelpage-btn" href="{{ url_for('mytravelpage') }}">
+        <button type="button" class="btn btn-secondary btn-sm">나의 여행 페이지</button>
     </div>
 
     <div class="second-title">
@@ -65,9 +72,14 @@
     </div>
 
     <!-- main -->
+    <!-- 4개씩 3줄  -->
+    <!-- 화면크기가 늘어나고 줄어들고에 따라 그림이나 글자가 달라지는 방법 -->
+    <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
+    <!-- 나의 여행 페이지를 누르면 mytravelpage로 이동 해야함 -->
+    <!-- 데이터 베이스에서 메인 카드에 보여줄 데이터를 받아와야함 -->
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="7000">
+            <div class="carousel-item active" data-bs-interval="5000">
                 <div class="card-wrapper">
                     <div class="">
                         <div class="col">
@@ -78,7 +90,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -93,23 +104,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수향일암.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -124,7 +118,20 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
+                                    <p class="card-text">이창훈</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="col">
+                            <div class="card h-100">
+                                <a href="trable.html">
+                                    <img src="C:\webproject\여수향일암.jpg" class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body">
+                                    <span class="card-title">해상 케이블카</span>
+                                    <p class="card-text">전라남도 여수</p>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -132,7 +139,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="7000">
+            <div class="carousel-item" data-bs-interval="5000">
                 <div class="card-wrapper">
                     <div class="">
                         <div class="col">
@@ -143,7 +150,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -158,7 +164,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -173,7 +178,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -188,7 +192,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -207,7 +210,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -222,7 +224,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -237,7 +238,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
@@ -252,7 +252,6 @@
                                 <div class="card-body">
                                     <span class="card-title">해상 케이블카</span>
                                     <p class="card-text">전라남도 여수</p>
-                                    <i class="bi bi-house-fill">상세주소</i>
                                     <p class="card-text">이창훈</p>
                                 </div>
                             </div>
