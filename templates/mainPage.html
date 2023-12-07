@@ -35,6 +35,38 @@
         .reserves {
             margin: 10px;
         }
+
+        .hot-place {
+            width: auto;
+            color: black;
+            font-size: 17px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #card-wrap {
+            display: flex;
+            margin: auto;
+            max-width: fit-content;
+        }
+
+        .col {
+            margin-right: 10px;
+        }
+
+        .card-img-top {
+            height: 160px;
+        }
+
+        .card-body {
+            display: block;
+            text-align: center;
+        }
+
+        .card-title {
+            color: black;
+            font-size: 20px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
@@ -70,11 +102,10 @@
                             </li>
                             {% else %}
                             <li class="nav-item">
-                                <a class="nav-link text-dark" aria-current="page" href="/logout" >Sign out</a>
+                                <a class="nav-link text-dark" aria-current="page" href="/logout">Sign out</a>
                             </li>
                             {% endif %}
-                            
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -258,52 +289,44 @@
 
             <section class="main-card-section" style="background-color:#f9f9f9">
 
-                <!-- 카드 자리 -->
-                <div class="row row-cols-1 row-cols-md-3 g-4 mx-auto w-75 pb-5">
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This card has supporting text below as a natural lead-in to
-                                    additional content.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This card has even longer content than the first to
-                                    show that equal height action.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
+                <!-- 카드 시작 -->
+                <div class="hot-place">
+                    <h3>우리가 추천하는 여행지</h3>
                 </div>
+                <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        {% for travel in data %}
+                        <div class="carousel-item active">
+                            <div id="card-wrap" class="mx-auto w-75 pb-5">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <a href="!!!!!!!!!!!!!!!!!!!!!!!!!">
+                                            <img src="{{ travel.image }}" class="card-img-top" alt="...">
+                                        </a>
+                                        <div class="card-body">
+                                            <strong class="card-title">{{ travel.title }}</strong>
+                                            <p class="card-text">{{ travel.adress }} </p>
+                                            <p class="card-text">{{ travel.username }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- 카드 끝 -->
             </section>
 
 

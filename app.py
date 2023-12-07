@@ -142,6 +142,23 @@ def logout():
     session.clear()
     return redirect(url_for("mainPage"))
 
+@app.route("/main/")
+def main():
+    travel_list = Travel.query.all()
+    return render_template('mainPage.html' data = travel_list)
+
+
+@app.route("/travelCardList/")
+def travelCardList():
+    travel_list = Travel.query.all()
+    return render_template('travelallpage.html' data = travel_list)
+
+
+@app.route("/myTravelCardList/")
+def mytravelpage(username):
+    filter_list = Travel.query.filter_by(username=username).all()
+    return render_template('mytravelpage.html' data = filter_list)
+
 
     
 if __name__ == '__main__':
