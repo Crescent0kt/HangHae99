@@ -23,18 +23,20 @@ class Travel(db.Model):
     title = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(255), nullable=False)
     content = db.Column(db.Text, nullable=False)
+    user_email = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
         return f'{self.title} {self.image} {self.content}'
 
-@app.route('/home')
-def home():
-    travels = Travel.query.all()
-    return render_template('index.html', travels=travels)
+# @app.route('/mainPage')
+# def main():
+#     return render_template('mainPage.html')
+
+
 
 # 변수이름 카멜케이스, 스네이크 케이스 통일
 # endpoint 하이픈으로 변경
-@app.route('/newTravel', methods=['GET', 'POST']) 
+@app.route('/newTravel/create', methods=['GET', 'POST']) 
 def newTravel():
     if request.method == 'POST':
         user_email = request.form['user_email']
@@ -47,7 +49,7 @@ def newTravel():
         db.session.add(new_travel)
         db.session.commit()
 
-        return redirect(url_for('home'))
+        return redirect(url_for('mytravelpage'))
 
     return render_template('newTravel.html')
 
@@ -145,11 +147,15 @@ def logout():
     session.clear()
     return redirect(url_for("mainPage"))
 
-@app.route("/main/")
-def main():
-    travel_list = Travel.query.all()
-    return render_template('mainPage.html', data = travel_list)
+# @app.route("/main/")
+# def main():
+#     travel_list = Travel.query.all()
+#     return render_template('mainPage.html', data = travel_list)
 
+# @app.route('/travelpage')
+# def home():
+#     travels = Travel.query.all()
+#     return render_template(url_for("mainPage"))
 
 @app.route("/travelCardList/")
 def travelCardList():
@@ -158,11 +164,10 @@ def travelCardList():
 
 
 @app.route("/myTravelCardList/")
-def mytravelpage(username):
-    filter_list = Travel.query.filter_by(username=username).all()
+def mytravelpage(user_email):
+    filter_list = Travel.query.filter_by(user_email=user_email).all()
     return render_template('mytravelpage.html', data = filter_list)
-
-
     
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
+    

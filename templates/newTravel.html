@@ -8,25 +8,25 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h2>Add Travel</h2>
+        <h2>여행지 추천하기</h2>
         <form method="POST" action="{{ url_for('newTravel') }}">
             <div class="form-group">
-                <label for="user_email">Travel Title</label>
+                <label for="user_email">이메일</label>
                 <input type="email" class="form-control" id="user_email" name="user_email" required>
             </div>
             <div class="form-group">
-                <label for="title">Travel Title</label>
+                <label for="title">여행지</label>
                 <input type="text" class="form-control" id="title" name="title" required>
             </div>
             <div class="form-group">
-                <label for="image">Travel Picture URL</label>
+                <label for="image">여행지 사진 URL</label>
                 <input type="text" class="form-control" id="image" name="image" required>
             </div>
             <div class="form-group">
-                <label for="content">Travel Info</label>
+                <label for="content">여행지 정보</label>
                 <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Add Travel</button>
+            <button type="submit" class="btn btn-primary">여행지 추천하기</button>
         </form>
     </div>
 </body>
