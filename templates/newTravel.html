@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Travel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Add Travel</h2>
+        <form method="POST" action="{{ url_for('newTravel') }}">
+            <div class="form-group">
+                <label for="travelTitle">Travel Title</label>
+                <input type="text" class="form-control" id="travelTitle" name="travelTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="travelPic_url">Travel Picture URL</label>
+                <input type="text" class="form-control" id="travelPic_url" name="travelPic_url" required>
+            </div>
+            <div class="form-group">
+                <label for="travelInfo">Travel Info</label>
+                <textarea class="form-control" id="travelInfo" name="travelInfo" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Travel</button>
+        </form>
+    </div>
+</body>
+</html>
