@@ -12,9 +12,9 @@
         <ul class="list-group">
             {% for travel in travels %}
                 <li class="list-group-item">
-                    <h3>{{ travel.travelTitle }}</h3>
-                    <img src="{{ travel.travelPic_url }}" alt="{{ travel.travelTitle }}" class="img-fluid">
-                    <p>{{ travel.travelInfo }}</p>
+                    <h3>{{ travel.title }}</h3>
+                    <img src="{{ travel.image }}" alt="{{ travel.title }}" class="img-fluid">
+                    <p>{{ travel.content }}</p>
                 </li>
             {% endfor %}
         </ul>

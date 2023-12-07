@@ -20,12 +20,12 @@ db = SQLAlchemy(app)
 
 class Travel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    travelTitle = db.Column(db.String(255), nullable=False)
-    travelPic_url = db.Column(db.String(255), nullable=False)
-    travelInfo = db.Column(db.Text, nullable=False)
+    title = db.Column(db.String(255), nullable=False)
+    image = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
-        return f'{self.travelTitle} {self.travelPic_url} {self.travelInfo}'
+        return f'{self.title} {self.image} {self.content}'
 
 @app.route('/home')
 def home():
@@ -38,12 +38,12 @@ def home():
 def newTravel():
     if request.method == 'POST':
         user_email = request.form['user_email']
-        travelTitle = request.form['travelTitle']
-        travelPic_url = request.form['travelPic_url']
-        travelInfo = request.form['travelInfo']
+        title = request.form['title']
+        image = request.form['image']
+        content = request.form['content']
 
-        new_travel = Travel(user_email=user_email, travelTitle=travelTitle,
-                            travelPic_url=travelPic_url, travelInfo=travelInfo)
+        new_travel = Travel(user_email=user_email, title=title,
+                            image=image, content=content)
         db.session.add(new_travel)
         db.session.commit()
 
