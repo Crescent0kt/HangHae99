@@ -32,14 +32,17 @@ def home():
     travels = Travel.query.all()
     return render_template('index.html', travels=travels)
 
-@app.route('/newTravel', methods=['GET', 'POST'])
+# 변수이름 카멜케이스, 스네이크 케이스 통일
+# endpoint 하이픈으로 변경
+@app.route('/newTravel', methods=['GET', 'POST']) 
 def newTravel():
     if request.method == 'POST':
+        user_email = request.form['user_email']
         travelTitle = request.form['travelTitle']
         travelPic_url = request.form['travelPic_url']
         travelInfo = request.form['travelInfo']
 
-        new_travel = Travel(travelTitle=travelTitle,
+        new_travel = Travel(user_email=user_email, travelTitle=travelTitle,
                             travelPic_url=travelPic_url, travelInfo=travelInfo)
         db.session.add(new_travel)
         db.session.commit()
