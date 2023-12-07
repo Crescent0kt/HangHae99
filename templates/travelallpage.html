@@ -79,186 +79,26 @@
     <!-- 데이터 베이스에서 메인 카드에 보여줄 데이터를 받아와야함 -->
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+            {% for travel in data %}
             <div class="carousel-item active" data-bs-interval="5000">
                 <div class="card-wrapper">
                     <div class="">
                         <div class="col">
                             <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수철도길.jpg" class="card-img-top" alt="...">
+                                <a href="!!!!!!!!!!!!!!!!!!!!!!">
+                                    <img src="{{ travel.image }}" class="card-img-top" alt="...">
                                 </a>
                                 <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수케이블카.webp" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수향일암.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수향일암.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
+                                    <span class="card-title">{{ travel.title }}</span>
+                                    <p class="card-text">{{ travel.adress }}</p>
+                                    <p class="card-text">{{ travel.username }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="5000">
-                <div class="card-wrapper">
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수철도길.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수철도길.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수철도길.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수향일암.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card-wrapper">
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수철도길.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수철도길.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수철도길.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="trable.html">
-                                    <img src="C:\webproject\여수향일암.jpg" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <span class="card-title">해상 케이블카</span>
-                                    <p class="card-text">전라남도 여수</p>
-                                    <p class="card-text">이창훈</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
             data-bs-slide="prev">

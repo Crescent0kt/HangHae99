@@ -8,19 +8,23 @@ import os
 from flask import Flask, render_template
 app = Flask(__name__)
 
+
 @app.route("/main/")
 def main():
-    return render_template('main.html')
+    travel_list = travel.query.all()
+    return render_template('main.html' data = travel_list)
 
 
-@app.route("/travelallpage/")
-def travelallpage():
-    return render_template('travelallpage.html')
+@app.route("/travelCardList/")
+def travelCardList():
+    travel_list = travel.query.all()
+    return render_template('travelallpage.html' data = travel_list)
 
 
-@app.route("/mytravelpage/")
-def mytravelpage():
-    return render_template('mytravelpage.html')
+@app.route("/myTravelCardList/")
+def mytravelpage(username):
+    filter_list = Travel.query.filter_by(username=username).all()
+    return render_template('mytravelpage.html' data = filter_list)
 
 
 if __name__ == "__main__":

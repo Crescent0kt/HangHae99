@@ -59,9 +59,9 @@
     <div class="first-title"">
         <h3><span style=" color: red;">여행 기록</span>을 남겨주세요.</h3>
     </div>
-
+    <!-- 연결 페이지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <div class="mytravelpage-btn">
-        <a href="{{ url_for('newtravelpage') }}">
+        <a href="{{ url_for('newTravelPage') }}">
         <button type="button" class="btn btn-secondary btn-sm">카드생성하기</button>
         </a>
     </div>
@@ -73,17 +73,17 @@
     <!-- main -->
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            {% for ???????? in data %}
+            {% for travel in data %}
             <div class="carousel-item active" data-bs-interval="5000">
                 <div class="card-wrapper">
                     <div class="">
                         <div class="col">
                             <div class="card h-100">
-                                    <img src="{{ data.image }}" class="card-img-top" alt="...">
+                                    <img src="{{ travel.image }}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <span class="card-title">{{ data.title }}</span>
-                                    <p class="card-text">{{ data.adress }}</p>
-                                    <p class="card-text">{{ data.username }}</p>
+                                    <span class="card-title">{{ travel.title }}</span>
+                                    <p class="card-text">{{ travel.adress }}</p>
+                                    <p class="card-text">{{ travel.username }}</p>
                                 </div>
                             </div>
                         </div>
