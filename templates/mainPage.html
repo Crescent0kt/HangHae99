@@ -21,7 +21,7 @@
         .reserve {
             display: flex;
             flex-direction: column;
-            margin-left: 200px;
+            margin-left: 100px;
             padding: 20px;
         }
 
@@ -203,101 +203,68 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <!-- Modal 이거 안필요한것같은데...-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">최애 음악</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">유저</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">사용자(추천인)의 이름을 넣어주세요.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">노래 제목</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                                <div id="emailHelp" class="form-text">좋아하는 노래 제목을 넣어주세요.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">가수</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">앨범 커버URL</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <button type="submit" class="btn btn-danger">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- main1 -->
-        <main>
-            <!-- 윗 배경 자리 -->
-            <section id="main-section-top" class="background-pale-peach" style="height: 100%; overflow: hidden;">
-                <div id="carouselExampleCaptions" class="carousel slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="image_url"
-                                src="https://cdn.pixabay.com/photo/2018/08/08/22/17/mountain-meadow-3593319_1280.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h1>"세계는 한 권의 책이다. 여행하지 않는 사람들은 그 책의 한 페이지만 읽는 것과 같다"</h1>
-                                <p>-아우구스티누스-</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="image_url"
-                                src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMTVfMjI5%2FMDAxNjk3MzcyMTQ1ODU3.Hywh25LqukpuQDRhDoxlxav_H0Gawgbt0WWF4VSIQqAg.mdHBU9LohiPu2V1Pu1BgNChcT_U2DvcWQ7BBzfIfSU8g.PNG.hanaenbt%2F028.png&type=a340"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h1>"여행은 모든 세대를 통틀어 가장 잘 알려진 예방약이자 치료제이며 동시에 회복제이다"</h1>
-                                <p>-대니얼 드레이크-</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="image_url"
-                                src="https://img.podbbang.com/pbi/t/640/375/0/393/058/000058393/58393.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h1>"그거알아? 아직 항해 시작도 안했어... 힘..내야겠지???"</h1>
-                                <p>-8조 팀장 누군가-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </section>
-            <br>
-            <br>
-        </main>
+        <canvas id="myCanvas" width="auo" height="20"></canvas>
 
-        <!-- main2 -->
     </div>
+    <!-- main1 -->
+    <main>
+        <!-- 윗 배경 자리 -->
+        <section id="main-section-top" class="background-pale-peach" style="height: 100%; overflow: hidden;">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="image_url"
+                            src="https://cdn.pixabay.com/photo/2018/08/08/22/17/mountain-meadow-3593319_1280.jpg"
+                            class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block" style="margin-bottom: 50px;">
+                            <h1>"세계는 한 권의 책이다. 여행하지 않는 사람들은 그 책의 한 페이지만 읽는 것과 같다"</h1>
+                            <p>-아우구스티누스-</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="image_url"
+                            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMTVfMjI5%2FMDAxNjk3MzcyMTQ1ODU3.Hywh25LqukpuQDRhDoxlxav_H0Gawgbt0WWF4VSIQqAg.mdHBU9LohiPu2V1Pu1BgNChcT_U2DvcWQ7BBzfIfSU8g.PNG.hanaenbt%2F028.png&type=a340"
+                            class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block" style="margin-bottom: 200px;">
+                            <h1>"여행은 모든 세대를 통틀어 가장 잘 알려진 예방약이자 치료제이며 동시에 회복제이다"</h1>
+                            <p>-대니얼 드레이크-</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="image_url"
+                            src="https://img.podbbang.com/pbi/t/640/375/0/393/058/000058393/58393.jpg"
+                            class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block" style="margin-bottom: 100px;">
+                            <h1>"그거알아? 아직 항해 시작도 안했어... 힘..내야겠지???"</h1>
+                            <p>-8조 팀장 누군가-</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <br>
+        <br>
+    </main>
+
+    <!-- main2 -->
     <!-- 카드 시작 -->
     <section class="main-card-section" style="background-color:#f9f9f9">
         <div class="hot-place">
@@ -475,22 +442,20 @@
         </div>
     </div>
 
-    <div class="container">
-        <footer>
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <h1>Have a good day~!</h1>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.youtube.com/@SpartaCodingClub"><i
-                                class="bi bi-youtube"></i></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/spartacodingclub/"><i
-                                class="bi bi-instagram"></i></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis"
-                            href="https://www.notion.so/8-a3bc9995d7924a82b5b61b9de82aa58c"><i
-                                class="bi bi-postcard"></i></a></li>
-                </ul>
-            </div>
-        </footer>
-    </div>
+    <footer style="padding: 20px 20px;">
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <h1>Have a good day~!</h1>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-body-emphasis" href="https://www.youtube.com/@SpartaCodingClub"><i
+                            class="bi bi-youtube"></i></a></li>
+                <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/spartacodingclub/"><i
+                            class="bi bi-instagram"></i></a></li>
+                <li class="ms-3"><a class="link-body-emphasis"
+                        href="https://www.notion.so/8-a3bc9995d7924a82b5b61b9de82aa58c"><i
+                            class="bi bi-postcard"></i></a></li>
+            </ul>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
