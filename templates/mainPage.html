@@ -78,158 +78,117 @@
 </head>
 
 <body>
-    <div class="background-banner">
-        <!-- navbar -->
-        <nav class="navbar border-bottom border-bottom-dark d-flex justify-content-space-between px-5"
-            data-bs-theme="dark">
-            <div class="ms-3">
-                <img src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/images/sparta-logo.svg"
-                    alt="">
-            </div>
+    <!-- navbar -->
+    <nav class="navbar border-bottom border-bottom-dark d-flex justify-content-space-between px-5" data-bs-theme="dark">
+        <div class="ms-3">
+            <img src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/images/sparta-logo.svg"
+                alt="">
+        </div>
 
 
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid"
-                    style="display: flex;flex-direction: row-reverse; flex-wrap: nowrap; justify-content: center;">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"
-                            style="background-color: black; border: 4px solid black;"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            {% if data.email == None %}
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" aria-current="page" href="#" data-toggle="modal"
-                                    data-target="#SignInModal">로그인</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" aria-current="page" href="#" data-toggle="modal"
-                                    data-target="#SignUpModal">회원가입</a>
-                            </li>
-                            {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" aria-current="page" href="/logout">로그 아웃</a>
-                            </li>
-                            {% endif %}
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" aria-current="page" href="/">나의 추천 페이지</a>
-                            </li>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid"
+                style="display: flex;flex-direction: row-reverse; flex-wrap: nowrap; justify-content: center;">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="background-color: black; border: 4px solid black;"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        {% if data.email == None %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="#" data-toggle="modal"
+                                data-target="#SignInModal">로그인</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="#" data-toggle="modal"
+                                data-target="#SignUpModal">회원가입</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="/logout">로그 아웃</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="/">나의 추천 페이지</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
         </nav>
+    </nav>
 
-        <!-- Sign in modal1 -->
-        <div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Sign in form1 -->
-                        <form action="{{ url_for('login')}}" , method="POST">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" name="email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" name="password">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
-                        </form>
-                    </div>
+    <!-- Sign in modal1 -->
+    <div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sign in form1 -->
+                    <form action="{{ url_for('login')}}" , method="POST">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Sign up modal2 -->
-        <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Sign up form2 -->
-                        <form action="{{ url_for('join')}}" , method="POST">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" name="username">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" name="email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" name="password1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" name="password2">
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
-                        </form>
-                    </div>
+    <!-- Sign up modal2 -->
+    <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sign up form2 -->
+                    <form action="{{ url_for('join')}}" , method="POST">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                name="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="password1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="password2">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 코드 위치 확인 필요 -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-        <!-- Modal 이거 안필요한것같은데...-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">최애 음악</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">유저</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">사용자(추천인)의 이름을 넣어주세요.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">노래 제목</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                                <div id="emailHelp" class="form-text">좋아하는 노래 제목을 넣어주세요.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">가수</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">앨범 커버URL</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <button type="submit" class="btn btn-danger">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- main1 -->
-        <main>
+    <!-- 헤더 -->
+    <header>
+        <!-- 배너 -->
+        <div class="background-banner my-4">
             <!-- 윗 배경 자리 -->
             <section id="main-section-top" class="background-pale-peach" style="height: 100%; overflow: hidden;">
                 <div id="carouselExampleCaptions" class="carousel slide">
@@ -282,191 +241,193 @@
                     </button>
                 </div>
             </section>
-            <br>
-            <br>
-        </main>
-
-        <!-- main2 -->
-    </div>
-    <!-- 카드 시작 -->
-    <section class="main-card-section" style="background-color:#f9f9f9">
-        <div class="hot-place">
-            <h3>우리가 추천하는 여행지</h3>
         </div>
-        <div class="d-flex justify-content-end" style="margin-right: 50px; margin-bottom: 10px;">
-            <button type="button" class="btn btn-outline-primary">여행지 모두 보기</button>
-        </div>
-        <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-                {% for travel in data %}
-                <div class="carousel-item active">
-                    <div id="card-wrap" class="mx-auto w-75 pb-5">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="!!!!!!!!!!!!!!!!!!!!!!!!!">
-                                    <img src="{{ travel.image }}" class="card-img-top" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <strong class="card-title">{{ travel.title }}</strong>
-                                    <p class="card-text">{{ travel.adress }} </p>
-                                    <p class="card-text">{{ travel.username }} </p>
+    </header>
+    
+    <!-- 메인 카드 시작 -->
+    <main>
+        <!-- 카드 시작 -->
+        <section class="main-card-section my-4" style="background-color:#f9f9f9">
+            <div class="hot-place">
+                <h3>우리가 추천하는 여행지</h3>
+            </div>
+            <div class="d-flex justify-content-end" style="margin-right: 50px; margin-bottom: 10px;">
+                <button type="button" class="btn btn-outline-primary">여행지 모두 보기</button>
+            </div>
+            <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    {% for travel in data %}
+                    <div class="carousel-item active">
+                        <div id="card-wrap" class="mx-auto w-75 pb-5">
+                            <div class="col">
+                                <div class="card h-100">
+                                    <a href="!!!!!!!!!!!!!!!!!!!!!!!!!">
+                                        <img src="{{ travel.image }}" class="card-img-top" alt="...">
+                                    </a>
+                                    <div class="card-body">
+                                        <strong class="card-title">{{ travel.title }}</strong>
+                                        <p class="card-text">{{ travel.adress }} </p>
+                                        <p class="card-text">{{ travel.username }} </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </section>
+        <!-- 카드 끝 -->
+        <div class="main3" style="margin-top: 20px; margin-bottom: 20px;">
+            <!-- 주간 날씨 불러오기 -->
+            <div class="R3Y3ec rr3bxd">
+                <h2>이번주 날씨</h2>
+                <div class="wob_dfc d-flex justify-content-space-between mx-auto p-2" id="wob_dp"
+                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQimt6BAgJEAk"
+                    style="left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+                    <div class="wob_df wob_ds" data-wob-di="0" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soAHoECAkQCg">
+                        <div class="Z1VzSb" aria-label="수요일">수</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_1"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
+                                    class="YQ4gaf zr758c" alt="구름 조금" data-csiid="13" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">11</span><span class="wob_t"
+                                    style="display:none">51</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">-1</span><span
+                                    class="wob_t" style="display:none">31</span>°</div>
+                        </div>
+                    </div>
+                    <div class="wob_df" data-wob-di="1" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soAXoECAkQCw">
+                        <div class="Z1VzSb" aria-label="목요일">목</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_3"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAQBJREFUaN7t2csNwyAMBmBGYYSMwhgdgxEYjRW6ARu4HNyqB0CKednElf5b2/hLSALGAICRHKMABSjgUMDdD7xfLifkxByoJOJ33O3/nwHIhVgsKDWKriXhb+0WQD6wJxZegvhlADzrcUDhpeFlpwLyAa5BZ711Na4pgAXFNxFdABw2K4r/R9iRgLiw+N89MQSATxvYFN8F2DB0qkOJCggbi/8m9AASA0AiAXBuA0ziKIDACBAogMgIECkAYBUFKEABzwOIf4yKf5HJnkqIn8wxmk775y5oxC8pj1jUH9FWEd/YOqK1eERz94j2euFqUCF7NzjYbzHpLqUCFKCAJfkAq7RimK7qUtAAAAAASUVORK5CYII="
+                                    class="YQ4gaf zr758c" alt="맑음" data-csiid="14" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">12</span><span class="wob_t"
+                                    style="display:none">54</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">6</span><span
+                                    class="wob_t" style="display:none">43</span>°</div>
+                        </div>
+                    </div>
+                    <div class="wob_df" data-wob-di="2" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soAnoECAkQDA">
+                        <div class="Z1VzSb" aria-label="금요일">금</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_5"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAQBJREFUaN7t2csNwyAMBmBGYYSMwhgdgxEYjRW6ARu4HNyqB0CKednElf5b2/hLSALGAICRHKMABSjgUMDdD7xfLifkxByoJOJ33O3/nwHIhVgsKDWKriXhb+0WQD6wJxZegvhlADzrcUDhpeFlpwLyAa5BZ711Na4pgAXFNxFdABw2K4r/R9iRgLiw+N89MQSATxvYFN8F2DB0qkOJCggbi/8m9AASA0AiAXBuA0ziKIDACBAogMgIECkAYBUFKEABzwOIf4yKf5HJnkqIn8wxmk775y5oxC8pj1jUH9FWEd/YOqK1eERz94j2euFqUCF7NzjYbzHpLqUCFKCAJfkAq7RimK7qUtAAAAAASUVORK5CYII="
+                                    class="YQ4gaf zr758c" alt="맑음" data-csiid="15" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">17</span><span class="wob_t"
+                                    style="display:none">63</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">9</span><span
+                                    class="wob_t" style="display:none">49</span>°</div>
+                        </div>
+                    </div>
+                    <div class="wob_df" data-wob-di="3" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soA3oECAkQDQ">
+                        <div class="Z1VzSb" aria-label="토요일">토</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_7"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
+                                    class="YQ4gaf zr758c" alt="대체로 맑음" data-csiid="16" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">15</span><span class="wob_t"
+                                    style="display:none">59</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">-2</span><span
+                                    class="wob_t" style="display:none">29</span>°</div>
+                        </div>
+                    </div>
+                    <div class="wob_df" data-wob-di="4" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soBHoECAkQDg">
+                        <div class="Z1VzSb" aria-label="일요일">일</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_9"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
+                                    class="YQ4gaf zr758c" alt="구름 조금" data-csiid="17" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">12</span><span class="wob_t"
+                                    style="display:none">54</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">5</span><span
+                                    class="wob_t" style="display:none">41</span>°</div>
+                        </div>
+                    </div>
+                    <div class="wob_df" data-wob-di="5" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soBXoECAkQDw">
+                        <div class="Z1VzSb" aria-label="월요일">월</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_11"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAZ9JREFUaN7tmdGNgzAMhhmBERiBEVjgJEbICIyQERiBTS4j5JU3RmCDnHNyq1wE1A4Jl0iJ9KtqVdv/R+xA1cYY05Ssos1XgCwBOGtd1x4kPfVNwhUFAI1rkDmRTgVyGwCMiQvjvkRWAGBoYJh/qc8JQAcAqCwAsO9NoBbQ5n1m38+g9ikAeQPgSjtofAJgTgTw0lg6wE5ppyAAmxj72CTWHB0Ae39/wPzvYEcDwKuuHzL+VkyAx81HA0h4ZKYHwNbZ/wvg4KFQcAFEJub/3Mk5ADJDgPcRWzKAVVc6wFQ6gKQA9EUD4H1AFdtCN3465jHEua8KUCzA1/c6gBbQxikI35cgZV8ZMae1ggAgUWuTgQxqIBqZnBhFjLmsFQognYRWI9HI7sRoxo6d1mIDQILOS0i9kosXNxBiPtYKAVBe0o7Yw27MQoT+WIsFYLfPSyiJRrQTY9uoJcSQapEBDoZpIxqZPCNTwOCe1uIAZDO4oQBbwOAK7uBya3EAFs7gHpwipMHl1uIADLi1XcNYGCOYMeRa9W/WClABKkAFiKofRnoGaQBkK9wAAAAASUVORK5CYII="
+                                    class="YQ4gaf zr758c" alt="비" data-csiid="18" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">9</span><span class="wob_t"
+                                    style="display:none">49</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span
+                                    class="wob_t" style="display:none">38</span>°</div>
+                        </div>
+                    </div>
+                    <div class="wob_df" data-wob-di="6" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soBnoECAkQEA">
+                        <div class="Z1VzSb" aria-label="화요일">화</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_13"
+                                    src="data:image/png;base64,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"
+                                    class="YQ4gaf zr758c" alt="소나기" data-csiid="19" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">8</span><span class="wob_t"
+                                    style="display:none">46</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">-5</span><span
+                                    class="wob_t" style="display:none">23</span>°</div>
+                        </div>
+                    </div>
+                    <div class="wob_df" data-wob-di="7" role="button" tabindex="0"
+                        data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soB3oECAkQEQ">
+                        <div class="Z1VzSb" aria-label="수요일">수</div>
+                        <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_15"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
+                                    class="YQ4gaf zr758c" alt="구름 조금" data-csiid="20" data-atf="1"></g-img></div>
+                        <div class="wNE31c">
+                            <div class="gNCp2e"><span class="wob_t" style="display:inline">7</span><span class="wob_t"
+                                    style="display:none">45</span>°</div>
+                            <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">2</span><span
+                                    class="wob_t" style="display:none">35</span>°</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 예약 사이트 표시 -->
+            <div class="reserve">
+                <div class="reserves">
+                    <img src="https://cdn-icons-png.flaticon.com/512/632/632519.png" width="40px;" height="40px;">
+                    <a class="btn btn-primary" href="https://www.bustago.or.kr/newweb/kr/index.do" role="button">버스 예약
+                        하러가기</a>
+                </div>
+                <div>
+                    <img src=https://cdn-icons-png.flaticon.com/512/7893/7893979.png width="60px;" height="60px;">
+                    <a class="btn btn-primary"
+                        href="https://www.skyscanner.co.kr/?&utm_source=google&utm_medium=cpc&utm_campaign=KR-Flights-Search-KO-Generics&utm_term=%EB%B9%84%ED%96%89%EA%B8%B0%EC%98%88%EC%95%BD&associateID=SEM_GGF_19370_00080&gclid=CjwKCAiA1MCrBhAoEiwAC2d64Q1nVeTjkfSGvhVx_iLwcGKUTTE82xu6AR1oNjeC85_f1JxJRqJ4QRoCW48QAvD_BwE&gclsrc=aw.ds"
+                        role="button">비행기 예약 하러가기</a>
+                </div>
+                <div class="reserves">
+                    <img src=https://cdn-icons-png.flaticon.com/512/1008/1008150.png width="60px;" height="60px;">
+                    <a class="btn btn-primary"
+                        href="https://kr.trip.com/trains/korail?allianceid=14887&sid=1621865&ppcid=ckid-5801369635_adid-675030309825_akid-kwd-529386144672_adgid-160735330224&utm_source=google&utm_medium=cpc&utm_campaign=20588302786&gad_source=1&gclid=CjwKCAiA1MCrBhAoEiwAC2d64RXBmBkWOfIUsKKP4jhTiYQZaGzjfZ7cvyYAGdts2pGf2gqQXrB5nRoCv8sQAvD_BwE"
+                        role="button">기차 예약 하러가기</a>
+                </div>
+            </div>
         </div>
-    </section>
-    <!-- 카드 끝 -->
-
-    <div class="main3" style="margin-top: 20px; margin-bottom: 20px;">
-        <!-- 주간 날씨 불러오기 -->
-        <div class="R3Y3ec rr3bxd">
-            <h2>이번주 날씨</h2>
-            <div class="wob_dfc d-flex justify-content-space-between mx-auto p-2" id="wob_dp"
-                data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQimt6BAgJEAk"
-                style="left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                <div class="wob_df wob_ds" data-wob-di="0" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soAHoECAkQCg">
-                    <div class="Z1VzSb" aria-label="수요일">수</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_1"
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
-                                class="YQ4gaf zr758c" alt="구름 조금" data-csiid="13" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">11</span><span class="wob_t"
-                                style="display:none">51</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">-1</span><span
-                                class="wob_t" style="display:none">31</span>°</div>
-                    </div>
-                </div>
-                <div class="wob_df" data-wob-di="1" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soAXoECAkQCw">
-                    <div class="Z1VzSb" aria-label="목요일">목</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_3"
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAQBJREFUaN7t2csNwyAMBmBGYYSMwhgdgxEYjRW6ARu4HNyqB0CKednElf5b2/hLSALGAICRHKMABSjgUMDdD7xfLifkxByoJOJ33O3/nwHIhVgsKDWKriXhb+0WQD6wJxZegvhlADzrcUDhpeFlpwLyAa5BZ711Na4pgAXFNxFdABw2K4r/R9iRgLiw+N89MQSATxvYFN8F2DB0qkOJCggbi/8m9AASA0AiAXBuA0ziKIDACBAogMgIECkAYBUFKEABzwOIf4yKf5HJnkqIn8wxmk775y5oxC8pj1jUH9FWEd/YOqK1eERz94j2euFqUCF7NzjYbzHpLqUCFKCAJfkAq7RimK7qUtAAAAAASUVORK5CYII="
-                                class="YQ4gaf zr758c" alt="맑음" data-csiid="14" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">12</span><span class="wob_t"
-                                style="display:none">54</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">6</span><span
-                                class="wob_t" style="display:none">43</span>°</div>
-                    </div>
-                </div>
-                <div class="wob_df" data-wob-di="2" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soAnoECAkQDA">
-                    <div class="Z1VzSb" aria-label="금요일">금</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_5"
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAQBJREFUaN7t2csNwyAMBmBGYYSMwhgdgxEYjRW6ARu4HNyqB0CKednElf5b2/hLSALGAICRHKMABSjgUMDdD7xfLifkxByoJOJ33O3/nwHIhVgsKDWKriXhb+0WQD6wJxZegvhlADzrcUDhpeFlpwLyAa5BZ711Na4pgAXFNxFdABw2K4r/R9iRgLiw+N89MQSATxvYFN8F2DB0qkOJCggbi/8m9AASA0AiAXBuA0ziKIDACBAogMgIECkAYBUFKEABzwOIf4yKf5HJnkqIn8wxmk775y5oxC8pj1jUH9FWEd/YOqK1eERz94j2euFqUCF7NzjYbzHpLqUCFKCAJfkAq7RimK7qUtAAAAAASUVORK5CYII="
-                                class="YQ4gaf zr758c" alt="맑음" data-csiid="15" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">17</span><span class="wob_t"
-                                style="display:none">63</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">9</span><span
-                                class="wob_t" style="display:none">49</span>°</div>
-                    </div>
-                </div>
-                <div class="wob_df" data-wob-di="3" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soA3oECAkQDQ">
-                    <div class="Z1VzSb" aria-label="토요일">토</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_7"
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
-                                class="YQ4gaf zr758c" alt="대체로 맑음" data-csiid="16" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">15</span><span class="wob_t"
-                                style="display:none">59</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">-2</span><span
-                                class="wob_t" style="display:none">29</span>°</div>
-                    </div>
-                </div>
-                <div class="wob_df" data-wob-di="4" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soBHoECAkQDg">
-                    <div class="Z1VzSb" aria-label="일요일">일</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_9"
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
-                                class="YQ4gaf zr758c" alt="구름 조금" data-csiid="17" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">12</span><span class="wob_t"
-                                style="display:none">54</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">5</span><span
-                                class="wob_t" style="display:none">41</span>°</div>
-                    </div>
-                </div>
-                <div class="wob_df" data-wob-di="5" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soBXoECAkQDw">
-                    <div class="Z1VzSb" aria-label="월요일">월</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_11"
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAZ9JREFUaN7tmdGNgzAMhhmBERiBEVjgJEbICIyQERiBTS4j5JU3RmCDnHNyq1wE1A4Jl0iJ9KtqVdv/R+xA1cYY05Ssos1XgCwBOGtd1x4kPfVNwhUFAI1rkDmRTgVyGwCMiQvjvkRWAGBoYJh/qc8JQAcAqCwAsO9NoBbQ5n1m38+g9ikAeQPgSjtofAJgTgTw0lg6wE5ppyAAmxj72CTWHB0Ae39/wPzvYEcDwKuuHzL+VkyAx81HA0h4ZKYHwNbZ/wvg4KFQcAFEJub/3Mk5ADJDgPcRWzKAVVc6wFQ6gKQA9EUD4H1AFdtCN3465jHEua8KUCzA1/c6gBbQxikI35cgZV8ZMae1ggAgUWuTgQxqIBqZnBhFjLmsFQognYRWI9HI7sRoxo6d1mIDQILOS0i9kosXNxBiPtYKAVBe0o7Yw27MQoT+WIsFYLfPSyiJRrQTY9uoJcSQapEBDoZpIxqZPCNTwOCe1uIAZDO4oQBbwOAK7uBya3EAFs7gHpwipMHl1uIADLi1XcNYGCOYMeRa9W/WClABKkAFiKofRnoGaQBkK9wAAAAASUVORK5CYII="
-                                class="YQ4gaf zr758c" alt="비" data-csiid="18" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">9</span><span class="wob_t"
-                                style="display:none">49</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span
-                                class="wob_t" style="display:none">38</span>°</div>
-                    </div>
-                </div>
-                <div class="wob_df" data-wob-di="6" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soBnoECAkQEA">
-                    <div class="Z1VzSb" aria-label="화요일">화</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_13"
-                                src="data:image/png;base64,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"
-                                class="YQ4gaf zr758c" alt="소나기" data-csiid="19" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">8</span><span class="wob_t"
-                                style="display:none">46</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">-5</span><span
-                                class="wob_t" style="display:none">23</span>°</div>
-                    </div>
-                </div>
-                <div class="wob_df" data-wob-di="7" role="button" tabindex="0"
-                    data-ved="2ahUKEwjjxcHU8vqCAxX5avUHHTxJAKsQi2soB3oECAkQEQ">
-                    <div class="Z1VzSb" aria-label="수요일">수</div>
-                    <div class="DxhUm"><g-img class="uW5pk"><img id="dimg_15"
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
-                                class="YQ4gaf zr758c" alt="구름 조금" data-csiid="20" data-atf="1"></g-img></div>
-                    <div class="wNE31c">
-                        <div class="gNCp2e"><span class="wob_t" style="display:inline">7</span><span class="wob_t"
-                                style="display:none">45</span>°</div>
-                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">2</span><span
-                                class="wob_t" style="display:none">35</span>°</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 예약 사이트 표시 -->
-        <div class="reserve">
-            <div class="reserves">
-                <img src="https://cdn-icons-png.flaticon.com/512/632/632519.png" width="40px;" height="40px;">
-                <a class="btn btn-primary" href="https://www.bustago.or.kr/newweb/kr/index.do" role="button">버스 예약
-                    하러가기</a>
-            </div>
-            <div>
-                <img src=https://cdn-icons-png.flaticon.com/512/7893/7893979.png width="60px;" height="60px;">
-                <a class="btn btn-primary"
-                    href="https://www.skyscanner.co.kr/?&utm_source=google&utm_medium=cpc&utm_campaign=KR-Flights-Search-KO-Generics&utm_term=%EB%B9%84%ED%96%89%EA%B8%B0%EC%98%88%EC%95%BD&associateID=SEM_GGF_19370_00080&gclid=CjwKCAiA1MCrBhAoEiwAC2d64Q1nVeTjkfSGvhVx_iLwcGKUTTE82xu6AR1oNjeC85_f1JxJRqJ4QRoCW48QAvD_BwE&gclsrc=aw.ds"
-                    role="button">비행기 예약 하러가기</a>
-            </div>
-            <div class="reserves">
-                <img src=https://cdn-icons-png.flaticon.com/512/1008/1008150.png width="60px;" height="60px;">
-                <a class="btn btn-primary"
-                    href="https://kr.trip.com/trains/korail?allianceid=14887&sid=1621865&ppcid=ckid-5801369635_adid-675030309825_akid-kwd-529386144672_adgid-160735330224&utm_source=google&utm_medium=cpc&utm_campaign=20588302786&gad_source=1&gclid=CjwKCAiA1MCrBhAoEiwAC2d64RXBmBkWOfIUsKKP4jhTiYQZaGzjfZ7cvyYAGdts2pGf2gqQXrB5nRoCv8sQAvD_BwE"
-                    role="button">기차 예약 하러가기</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <footer>
+    </main>
+    
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
                 <h1>Have a good day~!</h1>
                 <ul class="list-unstyled d-flex">
@@ -479,9 +440,13 @@
                                 class="bi bi-postcard"></i></a></li>
                 </ul>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
+    <!-- 코드 위치 확인 필요 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
