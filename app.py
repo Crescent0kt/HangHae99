@@ -78,12 +78,12 @@ def deleteTravel(id):
         db.session.delete(travel)
         db.session.commit()
 
-        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-            return jsonify({'status': 'success'})
-        else:
-            return redirect(url_for('home'))
+        # if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        #     return jsonify({'status': 'success'})
+        # else:
+        #     return redirect(url_for('home'))
 
-    return render_template('deleteTravel.html', travel=travel)
+    return redirect(url_for('mainPage'))
 
 # 로그인 로그아웃 기능
 

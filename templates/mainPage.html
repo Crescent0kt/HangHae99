@@ -1,10 +1,10 @@
-{% with messages = get_flashed_messages() %}
+<!-- {% with messages = get_flashed_messages() %}
 {% if messages %}
 <script>
     alert("{{messages[-1]}}");
 </script>
 {% endif %}
-{% endwith %}
+{% endwith %} -->
 
 <!Doctype html>
 <html lang="en">
@@ -54,10 +54,6 @@
             display: flex;
             margin: auto;
             max-width: fit-content;
-        }
-
-        .col {
-            margin-right: 10px;
         }
 
         .card-img-top {
@@ -240,16 +236,16 @@
                         </div>
                     </div>
                 </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev" style="margin: 200;">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev" style="margin: 200;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </section>
         <br>
@@ -295,33 +291,33 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div> -->
-        <div class="container mt-4">
-            <ul class="list-group">
-                {% for travel in travels %}
-                <li class="list-group-item">
-                    <h3>{{ travel.title }}</h3>
-                    <img src="{{ travel.image }}" alt="{{ travel.title }}" class="img-fluid">
-                    <p>{{ travel.content }}</p>
-                </li>
-                <li class="list-group-item">
-                    <h3>{{ travel.title }}</h3>
-                    <img src="{{ travel.image }}" alt="{{ travel.title }}" class="img-fluid">
-                    <p>{{ travel.content }}</p>
-                </li>
-                <li class="list-group-item">
-                    <h3>{{ travel.title }}</h3>
-                    <img src="{{ travel.image }}" alt="{{ travel.title }}" class="img-fluid">
-                    <p>{{ travel.content }}</p>
-                    <!-- 수정 링크 -->
-                    <a href="{{ url_for('editTravel', id=travel.id) }}" class="btn btn-warning">수정</a>
-                    <!-- 삭제 링크 -->
-                    <a href="{{ url_for('deleteTravel', id=travel.id) }}" class="btn btn-danger">삭제</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
     </section>
     <!-- 카드 끝 -->
+
+
+    <!-- 뮤직 -->
+    <div class="row row-cols-1 row-cols-md-4 g-4 mx-auto w-75 pb-5">
+        {% for travel in travels %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{ travel.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ travel.title }}</h5>
+                    <p class="card-text">{{ travel.content }}</p>
+                    <p class="card-text">추천 by {{ travel.user_email }}</p>
+                </div>
+                <!-- 수정 링크 -->
+                <a href="{{ url_for('editTravel', id=travel.id) }}" class="btn btn-warning">수정</a>
+                <!-- 삭제 링크 -->
+                <form action="{{ url_for('deleteTravel', id=travel.id) }}" method="post"> <input type="submit"
+                    value="삭제" class="btn btn-danger"> </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
 
     <div class="main3" style="margin-top: 20px; margin-bottom: 20px;">
         <!-- 주간 날씨 불러오기 -->
