@@ -178,6 +178,11 @@ def logout():
     session.clear()
     return redirect(url_for("mainPage"))
 
+@app.route("/travelCardList/")
+def travelallpage():
+    travel_list = Travel.query.all()
+    return render_template('travelallpage.html', data = travel_list)
+
 # @app.route("/main/")
 # def main():
 #     travel_list = Travel.query.all()
@@ -194,10 +199,10 @@ def logout():
 #     return render_template('travelallpage.html', data = travel_list)
 
 
-# @app.route("/myTravelCardList/")
-# def mytravelpage(user_email):
-#     filter_list = Travel.query.filter_by(user_email=user_email).all()
-#     return render_template('mytravelpage.html', data = filter_list)
+@app.route("/myTravelCardList/")
+def mytravelpage(user_email):
+    filter_list = Travel.query.filter_by(user_email=user_email).all()
+    return render_template('mytravelpage.html', data = filter_list)
     
 if __name__ == '__main__':
     app.run(debug=True)

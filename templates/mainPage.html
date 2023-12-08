@@ -88,7 +88,7 @@
 </head>
 
 <body>
-    <div class="background-banner">
+    <div class>
         <!-- navbar -->
         <nav class="navbar border-bottom border-bottom-dark d-flex justify-content-space-between px-5"
             data-bs-theme="dark">
@@ -125,12 +125,11 @@
                                 <a class="nav-link text-dark" aria-current="page" href="/myTravelCardList">나의 추천 페이지</a>
                             </li>
                         </ul>
-                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </nav>
         </nav>
-
         <!-- Sign in modal1 -->
         <div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -197,30 +196,29 @@
                 </div>
             </div>
         </div>
+    </div>
 
-
-        <!-- main1 -->
-        <main>
-            <!-- 윗 배경 자리 -->
-            <section id="main-section-top" class="background-pale-peach" style="height: 100%; overflow: hidden;">
-                <div id="carouselExampleCaptions" class="carousel slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="image_url"
-                                src="https://cdn.pixabay.com/photo/2018/08/08/22/17/mountain-meadow-3593319_1280.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h1>"11세계는 한 권의 책이다. 여행하지 않는 사람들은 그 책의 한 페이지만 읽는 것과 같다"</h1>
-                                <p>-아우구스티누스-</p>
-                            </div>
+    <!-- main1 -->
+    <main>
+        <!-- 윗 배경 자리 -->
+        <section id="main-section-top" class="background-pale-peach" style="height: 100%; overflow: hidden;">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="image_url"
+                            src="https://cdn.pixabay.com/photo/2018/08/08/22/17/mountain-meadow-3593319_1280.jpg"
+                            class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>"11세계는 한 권의 책이다. 여행하지 않는 사람들은 그 책의 한 페이지만 읽는 것과 같다"</h1>
+                            <p>-아우구스티누스-</p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -242,30 +240,29 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev" style="margin: 200;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
             </div>
         </section>
         <br>
         <br>
     </main>
-
     <!-- main2 -->
     <!-- 카드 시작 -->
     <section class="main-card-section" style="background-color:#f9f9f9">
         <div class="hot-place">
             <h3>우리가 추천하는 여행지</h3>
         </div>
-        <div class="d-flex justify-content-end" style="margin-right: 50px; margin-bottom: 10px;" >
-            <a href="{{ url_for('newTravel') }}" class="btn btn-primary mt-3">여행 추가</a>
+        <div class="d-flex justify-content-end" style="margin-right: 50px; margin-bottom: 10px;">
+            <a href="{{ url_for('travelallpage')}}" class="btn btn-primary mt-3">모든 여행 보여주기</a>
         </div>
         <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
         <!-- <div id="carouselExample" class="carousel slide">
@@ -322,7 +319,6 @@
                 </li>
                 {% endfor %}
             </ul>
-            <!-- <a href="{{ url_for('newTravel') }}" class="btn btn-primary mt-3">여행 추가</a> -->
         </div>
     </section>
     <!-- 카드 끝 -->
