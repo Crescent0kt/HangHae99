@@ -194,7 +194,7 @@ def logout():
 @app.route("/travelCardList/")
 def travelallpage():
     travel_list = Travel.query.all()
-    return render_template('travelallpage.html', data = travel_list)
+    return render_template('travelallpage.html', data=travel_list)
 
 # @app.route("/main/")
 # def main():
@@ -213,14 +213,21 @@ def travelCardList():
 
 
 @app.route("/myTravelCardList/")
-def mytravelpage(user_email):
+def mytravelpage():
     # 로그인한 경우에만 접근 가능
     if session.get('email') is None:
         flash("먼저 로그인해 주세요.")
         return redirect(url_for('login'))
-    
+    user_email = session.get('email')
     filter_list = Travel.query.filter_by(user_email=user_email).all()
     return render_template('mytravelpage.html', data = filter_list)
+    
+    
+    #해당 카드와 페이지를 연결하는 함수  #강릉 카드면 강릉 전체 내용이 나오는 html
+@app.route("/newtravelpage/<int:id>")
+def newtravelpage(id):
+    travellog=Travel.query.filter_by(id=id).first() 
+    return render_template('newtravelpage.html', data = travellog)
     
 if __name__ == '__main__':
     app.run(debug=True)
