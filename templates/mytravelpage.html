@@ -10,7 +10,12 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-
+        .body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         .first-title {
             margin-top: 50px;
         }
@@ -19,6 +24,10 @@
             text-align: right;
             margin-top: 50px;
             margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .second-title {
@@ -52,11 +61,49 @@
 
 </head>
 
-<body>
+<body class = "body">
     <!-- nav -->
+    <nav class="navbar border-bottom border-bottom-dark d-flex justify-content-space-between px-5 w-100" data-bs-theme="dark">
+        <div class="ms-3">
+            <img src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/images/sparta-logo.svg"
+                alt="">
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="{{mainPage}}">홈</a>
+                        </li>
+                        {% if data.email == None %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="#" data-toggle="modal"
+                                data-target="#SignInModal">로그인</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="#" data-toggle="modal"
+                                data-target="#SignUpModal">회원가입</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="/logout">로그아웃</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="/myTravelCardList">나의 추천 페이지</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </nav>
 
     <!-- main -->
-    <div class="first-title"">
+    <div class="first-title">
         <h3><span style=" color: red;">여행 기록</span>을 남겨주세요.</h3>
     </div>
     <!-- 연결 페이지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
