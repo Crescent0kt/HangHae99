@@ -1,10 +1,10 @@
-<!-- {% with messages = get_flashed_messages() %}
+{% with messages = get_flashed_messages() %}
 {% if messages %}
 <script>
     alert("{{messages[-1]}}");
 </script>
 {% endif %}
-{% endwith %} -->
+{% endwith %}
 
 <!Doctype html>
 <html lang="en">
@@ -50,7 +50,7 @@
             text-align: center;
         }
 
-        #card-wrap {
+        card-wrap {
             display: flex;
             margin: auto;
             max-width: fit-content;
@@ -295,7 +295,7 @@
     <!-- 카드 끝 -->
 
 
-    <!-- 뮤직 -->
+    <!-- 카드 시작 -->
     <div class="row row-cols-1 row-cols-md-4 g-4 mx-auto w-75 pb-5">
         {% for travel in travels %}
         <div class="col">
@@ -315,6 +315,7 @@
         </div>
         {% endfor %}
     </div>
+    <!-- 카드 끝 -->
 
 
 
