@@ -199,15 +199,10 @@ def travelallpage():
 #     return render_template('travelallpage.html', data = travel_list)
 
 
-@app.route("/myTravelCardList/") 
-def mytravelpage(): 
-    user_email = session.get("email",None)
-    filter_list = Travel.query.filter_by(user_email=user_email).all() 
+@app.route("/myTravelCardList/")
+def mytravelpage(user_email):
+    filter_list = Travel.query.filter_by(user_email=user_email).all()
     return render_template('mytravelpage.html', data = filter_list)
-
-@app.route("/newtravelpage/") 
-def newTravelPage(): 
-    return render_template('newTravel.html')
     
 if __name__ == '__main__':
     app.run(debug=True)
