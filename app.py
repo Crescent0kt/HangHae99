@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, url_for, redirect, flash, session
+from flask import Flask, request, render_template, url_for, redirect, flash, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os, secrets
 
@@ -23,14 +23,15 @@ class Travel(db.Model):
     title = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(255), nullable=False)
     content = db.Column(db.Text, nullable=False)
+    user_email = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
-        return f'{self.title} {self.image} {self.content}'
+        return f'{self.title} {self.image} {self.content} {self.user_email}'
 
-@app.route('/home')
-def home():
-    travels = Travel.query.all()
-    return render_template('index.html', travels=travels)
+# @app.route('/')
+# def home():
+#     travels = Travel.query.all()
+#     return render_template('mainPage.html', travels=travels)
 
 # 변수이름 카멜케이스, 스네이크 케이스 통일
 # endpoint 하이픈으로 변경
@@ -47,13 +48,44 @@ def newTravel():
         db.session.add(new_travel)
         db.session.commit()
 
-        return redirect(url_for('home'))
+        return redirect(url_for('mainPage'))
 
     return render_template('newTravel.html')
 
 with app.app_context():
     db.create_all()
 
+@app.route('/editTravel/<int:id>', methods=['GET', 'POST'])
+def editTravel(id):
+    travel = Travel.query.get(id)
+
+    if request.method == 'POST':
+        travel.user_email = request.form['user_email']
+        travel.title = request.form['title']
+        travel.image = request.form['image']
+        travel.content = request.form['content']
+
+        db.session.commit()
+        return redirect(url_for('mainPage'))
+
+    return render_template('editTravel.html', travel=travel)
+
+@app.route('/deleteTravel/<int:id>', methods=['GET', 'POST'])
+def deleteTravel(id):
+    travel = Travel.query.get(id)
+
+    if request.method == 'POST':
+        db.session.delete(travel)
+        db.session.commit()
+
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return jsonify({'status': 'success'})
+        else:
+            return redirect(url_for('home'))
+
+    return render_template('deleteTravel.html', travel=travel)
+
+# 로그인 로그아웃 기능
 
 class Users(db.Model):
     __bind_key__ = 'userdb'
@@ -67,12 +99,13 @@ with app.app_context():
 
 @app.route("/")
 def mainPage():
+    travels = Travel.query.all()
     #유저 데이터 배열로 생성
     userData = {}
     userData["email"] = session.get("email",None)
     userData["username"] = session.get("username",None)
     userData["password"] = session.get("password",None)
-    return render_template("mainPage.html",data = userData)
+    return render_template("mainPage.html", travels = travels, data = userData)
 
 
 @app.route("/join/", methods=["GET", "POST"])
@@ -145,24 +178,27 @@ def logout():
     session.clear()
     return redirect(url_for("mainPage"))
 
-@app.route("/main/")
-def main():
-    travel_list = Travel.query.all()
-    return render_template('mainPage.html', data = travel_list)
+# @app.route("/main/")
+# def main():
+#     travel_list = Travel.query.all()
+#     return render_template('mainPage.html', data = travel_list)
+
+# @app.route('/travelpage')
+# def home():
+#     travels = Travel.query.all()
+#     return render_template(url_for("mainPage"))
+
+# @app.route("/travelCardList/")
+# def travelCardList():
+#     travel_list = Travel.query.all()
+#     return render_template('travelallpage.html', data = travel_list)
 
 
-@app.route("/travelCardList/")
-def travelCardList():
-    travel_list = Travel.query.all()
-    return render_template('travelallpage.html', data = travel_list)
-
-
-@app.route("/myTravelCardList/")
-def mytravelpage(username):
-    filter_list = Travel.query.filter_by(username=username).all()
-    return render_template('mytravelpage.html', data = filter_list)
-
-
+# @app.route("/myTravelCardList/")
+# def mytravelpage(user_email):
+#     filter_list = Travel.query.filter_by(user_email=user_email).all()
+#     return render_template('mytravelpage.html', data = filter_list)
     
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
+    
