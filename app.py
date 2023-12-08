@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, url_for, redirect, flash, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os, secrets
-
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -37,6 +36,11 @@ class Travel(db.Model):
 # endpoint 하이픈으로 변경
 @app.route('/newTravel', methods=['GET', 'POST']) 
 def newTravel():
+    # 로그인한 경우에만 접근 가능
+    if session.get('email') is None:
+        flash("먼저 로그인해 주세요.")
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         user_email = request.form['user_email']
         title = request.form['title']
@@ -59,6 +63,11 @@ with app.app_context():
 def editTravel(id):
     travel = Travel.query.get(id)
 
+    # 로그인한 경우에만 접근 가능
+    if session.get('email') is None:
+        flash("먼저 로그인해 주세요.")
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         travel.user_email = request.form['user_email']
         travel.title = request.form['title']
@@ -73,6 +82,11 @@ def editTravel(id):
 @app.route('/deleteTravel/<int:id>', methods=['GET', 'POST'])
 def deleteTravel(id):
     travel = Travel.query.get(id)
+
+    # 로그인한 경우에만 접근 가능
+    if session.get('email') is None:
+        flash("먼저 로그인해 주세요.")
+        return redirect(url_for('login'))
 
     if request.method == 'POST':
         db.session.delete(travel)
@@ -116,17 +130,17 @@ def join():
         password1_received = request.form.get("password1", type=str)
         password2_received = request.form.get("password2", type=str)
 
-        # 값을 다 입력하지 않은 경우
+        # case1-1
         if username_received == "" or email_received == "" or password1_received == "" or password2_received == "":
             flash("입력되지 않은 값이 있습니다.")
             return redirect(url_for("mainPage"))
         
-        # 비밀번호가 일치하지 않는 경우
+        # case1-2
         if password1_received != password2_received:
             flash("비밀번호가 일치하지 않습니다.")
             return redirect(url_for("mainPage"))
         
-        # 가입된 정보가 있는 경우
+        # case1-3
         cnt = Users.query.filter_by(email = email_received).count()
         if cnt > 0:
             flash("중복된 이메일 주소입니다.")
@@ -141,21 +155,20 @@ def join():
     else: # if request.method == "GET":
         return redirect(url_for("mainPage"))
     
-
 @app.route("/login/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         email_received = request.form.get("email", type=str)
         password_received = request.form.get("password", type=str)
 
-        # 값을 다 입력하지 않은 경우
+        # case2-1
         if email_received == "" or password_received == "":
             flash("입력되지 않은 값이 있습니다.")
             return render_template("mainPage.html")
 
         user = Users.query.filter_by(email = email_received).first()
 
-        # 가입된 정보가 없는 경우
+        # case2-2
         if user is None:
             flash("일치하는 회원 정보가 없습니다.")
             return redirect(url_for("mainPage"))
@@ -166,7 +179,7 @@ def login():
                 session['password'] = user.password
                 session.permanent = True
                 return redirect(url_for("mainPage"))
-            # 비밀번호가 일치하지 않는 경우
+            # case2-3
             else:
                 flash("비밀번호가 일치하지 않습니다.")
                 return redirect(url_for("mainPage"))
@@ -201,9 +214,13 @@ def travelallpage():
 
 @app.route("/myTravelCardList/")
 def mytravelpage(user_email):
+    # 로그인한 경우에만 접근 가능
+    if session.get('email') is None:
+        flash("먼저 로그인해 주세요.")
+        return redirect(url_for('login'))
+    
     filter_list = Travel.query.filter_by(user_email=user_email).all()
     return render_template('mytravelpage.html', data = filter_list)
     
 if __name__ == '__main__':
     app.run(debug=True)
-    
