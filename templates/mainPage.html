@@ -265,7 +265,7 @@
             <h3>우리가 추천하는 여행지</h3>
         </div>
         <div class="d-flex justify-content-end" style="margin-right: 50px; margin-bottom: 10px;" >
-            <a class="btn btn-outline-primary" href="/travelCardList">추천 모두 보기</a>
+            <a href="{{ url_for('newTravel') }}" class="btn btn-primary mt-3">여행 추가</a>
         </div>
         <!-- 사진을 클릭하면 보여줄 페이지를 연결시켜야 하는데 페이지를 어디로??? -->
         <!-- <div id="carouselExample" class="carousel slide">
@@ -299,7 +299,6 @@
             </button>
         </div> -->
         <div class="container mt-4">
-            <h2>우리가 추천하는 여행지</h2>
             <ul class="list-group">
                 {% for travel in travels %}
                 <li class="list-group-item">
@@ -323,7 +322,7 @@
                 </li>
                 {% endfor %}
             </ul>
-            <a href="{{ url_for('newTravel') }}" class="btn btn-primary mt-3">여행 추가</a>
+            <!-- <a href="{{ url_for('newTravel') }}" class="btn btn-primary mt-3">여행 추가</a> -->
         </div>
     </section>
     <!-- 카드 끝 -->
