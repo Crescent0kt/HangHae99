@@ -10,14 +10,17 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
         .body {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+
         .first-title {
             margin-top: 50px;
+            margin-bottom: 50px;
         }
 
         .mytravelpage-btn {
@@ -57,13 +60,22 @@
         .card-title {
             font-size: 25px;
         }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
 
-<body class = "body">
+<body class="body">
     <!-- nav -->
-    <nav class="navbar border-bottom border-bottom-dark d-flex justify-content-space-between px-5 w-100" data-bs-theme="dark">
+    <nav class="navbar border-bottom border-bottom-dark d-flex justify-content-space-between px-5 w-100"
+        data-bs-theme="dark">
         <div class="ms-3">
             <img src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/images/sparta-logo.svg"
                 alt="">
@@ -77,7 +89,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" aria-current="page" href="{{mainPage}}">홈</a>
+                            <a class="nav-link text-dark" aria-current="page" href="{{url_for('mainPage')}}">홈</a>
                         </li>
                         {% if data.email == None %}
                         <li class="nav-item">
@@ -92,9 +104,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" aria-current="page" href="/logout">로그아웃</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" aria-current="page" href="/myTravelCardList">나의 추천 페이지</a>
-                        </li>
+
                     </ul>
                     {% endif %}
                 </div>
@@ -104,29 +114,31 @@
 
     <!-- main -->
     <div class="first-title">
-        <h3><span style=" color: red;">여행 기록</span>을 남겨주세요.</h3>
+        <h3><span style=> 회원님의 추억을 남겨주세요.</h3>
     </div>
     <!-- 연결 페이지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-    <div class="mytravelpage-btn">
+    <div>
         <a href="{{ url_for('newTravel') }}">
-        <button type="button" class="btn btn-secondary btn-sm">카드생성하기</button>
+            <button type="button" class="btn btn-secondary btn-sm">카드생성하기</button>
         </a>
     </div>
 
     <div class="second-title">
-        <h4>가고 싶은 여행지를 골라주세요.</h4>
+        <h4>기억 하고 싶은 추억을 골라주세요</h4>
     </div>
-
     <!-- main -->
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+
+    <div id="carouselExampleInterval" class="carousel slide card-img-top img-fluid" data-bs-ride="carousel">
         <div class="carousel-inner">
             {% for travel in data %}
-            <div class="carousel-item active" data-bs-interval="5000">
+            <div class="carousel-item active" data-bs-interval="3000">
                 <div class="card-wrapper">
                     <div class="">
                         <div class="col">
                             <div class="card h-100">
-                                    <img src="{{ travel.image }}" class="card-img-top" alt="...">
+                                <a href="{{ url_for('newtravelpage', id=travel.id) }}">
+                                    <img src="{{ travel.image }}" class="card-img-top img-fluid" alt="...">
+                                </a>
                                 <div class="card-body">
                                     <span class="card-title">{{ travel.title }}</span>
                                     <p class="card-text">{{ travel.address }}</p>
@@ -151,11 +163,29 @@
         </button>
     </div>
 
+
     <!-- footer -->
+    <footer style="padding: 20px 20px;">
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <h1>Have a good day~!</h1>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-body-emphasis" href="https://www.youtube.com/@SpartaCodingClub"><i
+                            class="bi bi-youtube"></i></a></li>
+                <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/spartacodingclub/"><i
+                            class="bi bi-instagram"></i></a></li>
+                <li class="ms-3"><a class="link-body-emphasis"
+                        href="https://www.notion.so/8-a3bc9995d7924a82b5b61b9de82aa58c"><i
+                            class="bi bi-postcard"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </body>
+
 
 </html>
