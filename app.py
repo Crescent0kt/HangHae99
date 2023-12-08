@@ -206,10 +206,10 @@ def travelallpage():
 #     travels = Travel.query.all()
 #     return render_template(url_for("mainPage"))
 
-# @app.route("/travelCardList/")
-# def travelCardList():
-#     travel_list = Travel.query.all()
-#     return render_template('travelallpage.html', data = travel_list)
+@app.route("/travelCardList/")
+def travelCardList():
+    travel_list = Travel.query.all()
+    return render_template('travelallpage.html', data = travel_list)
 
 
 @app.route("/myTravelCardList/")
